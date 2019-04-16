@@ -1,4 +1,4 @@
-# Puente Data Collection and Asset Identification Application 
+# Ferndale.park
 
 ![](https://img.shields.io/badge/build-success-brightgreen.svg)
 
@@ -10,6 +10,9 @@
 # About this Program
 
 This is a Parking Application that integrates Ionic 3, Angular 2+. It's being used for to deliver estimated wait times for parking in Ferndale, Michigan
+
+# API
+API: AIzaSyByNVMMPNKV7a0cddu34qadgJPx3dNtFv4
 
 ## Ionic Framework
 
