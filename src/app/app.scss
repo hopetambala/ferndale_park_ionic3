@@ -19,3 +19,10 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+.my-custom-modal-css .modal-wrapper {
+    height: 40%;
+    top: 60%; //distance from top
+    position: absolute; 
+    display: block;  
+ }
