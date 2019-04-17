@@ -1,44 +1,48 @@
 drawer {
 
-$height: 200px;
-$width: 200px;
+  $height: 200px;
+  $width: 200px;
 
-$brand-color:#9CBF50;
+  $brand-color:#9CBF50;
 
-.toolb{
-    background-color: rgb(54, 58, 54);
-    color: white;
-}
-
-.content{
-    border-radius: 50px;
-    height: 40%;
-    top: 60%; //distance from top
-    position: absolute; 
-    display: block;  
-}
-
-u{
-    text-decoration: underline;
-    text-decoration-color: $brand-color;
-}
-
-.bottom{
-    border-bottom: 5px solid;
-    border-bottom-color: $brand-color;
-}
-
-.box {
-    width: 300px;
-    height: 300px;
-    min-width: 100%;
-    border-radius: 5px;
-    box-shadow: 0 2px 30px rgba(black, .2);
-    background: lighten(#f0f4c3, 10%);
-    position: relative;
-    overflow: hidden;
-    transform: translate3d(0, 0, 0);
+  .toolb{
+      background-color: rgb(54, 58, 54);
+      color: white;
   }
+
+  .colr{
+    color: $brand-color;
+  }
+
+  .content{
+      //border-radius: 50px;
+      height: 40%;
+      top: 60%; //distance from top
+      position: absolute; 
+      display: block;  
+  }
+
+  u{
+      text-decoration: underline;
+      text-decoration-color: $brand-color;
+  }
+
+  .bottom{
+      border-bottom: 5px solid;
+      border-bottom-color: $brand-color;
+  }
+
+  .box {
+      width: 300px;
+      height: 300px;
+      min-width: 100%;
+      //border-radius: 5px;
+      box-shadow: 0 2px 30px rgba(black, .2);
+      background: lighten(#f0f4c3, 10%);
+      position: relative;
+      overflow: hidden;
+      transform: translate3d(0, 0, 0);
+    }
   
   .wave {
     opacity: .05;

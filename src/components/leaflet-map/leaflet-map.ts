@@ -69,7 +69,7 @@ export class LeafletMapComponent {
         fillOpacity: 0.5,
         radius: 10
       })
-      .bindPopup(String(lot["Parking Lot"]))
+      //.bindPopup(String(lot["Parking Lot"]))
       //.openPopup()
       .on('click', () => {
         //alert('Marker clicked');

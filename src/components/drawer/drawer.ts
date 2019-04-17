@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavParams,ModalController,ViewController } from 'ionic-angular';
+import { NavParams,ModalController,ViewController, ActionSheetController } from 'ionic-angular';
 
 
 /**
@@ -32,7 +32,10 @@ export class DrawerComponent {
   capacity: number;
   spots_left: number;
 
-  constructor(public viewCtrl: ViewController, public modalCtrl:ModalController,public navParams: NavParams) {
+  lyft_client_id = '-1uo5XDR5GoE'
+  //lyft_url = 'https://lyft.com/ride?id=lyft&pickup[latitude]=37.764728&pickup[longitude]=-122.422999&partner=YOUR_CLIENT_ID&destination[latitude]=37.7763592&destination[longitude]=-122.4242038'
+
+  constructor(public viewCtrl: ViewController, public modalCtrl:ModalController,public navParams: NavParams, public actionSheetCtrl:ActionSheetController) {
     console.log('Hello DrawerComponent Component');
     this.lot_object = this.navParams.data.value
     this.capacity = 52;
@@ -47,6 +50,33 @@ export class DrawerComponent {
     this.viewCtrl.dismiss({
       //value: null
     });
+  }
+
+  presentActionSheet() {
+  //https://developer.lyft.com/docs/universal-links
+  //https://www.lyft.com/developers/apps
+    let lyft_url = 'https://lyft.com/ride?id=lyft&pickup[latitude]=' + '37.764728' + '&pickup[longitude]=' + '-122.422999'+'&partner='+this.lyft_client_id+'&destination[latitude]='+'37.7763592'+'&destination[longitude]='+'-122.4242038'
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Open Lyft App',
+      buttons: [
+        {
+          text: 'Yes',
+          handler: () => {
+            console.log('Archive clicked');
+            window.open(lyft_url,'_system', 'location=yes');
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+ 
+    actionSheet.present();
   }
 
   // events

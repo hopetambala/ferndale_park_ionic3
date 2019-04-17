@@ -1,6 +1,6 @@
 <ion-content class="content">
   <div>
-    <ion-toolbar color="bottom" (click)='closeModal()'>
+    <ion-toolbar color='dark' class="bottom" (click)='closeModal()'>
       <h1>Parking Lot: {{parking_number}}</h1>
     </ion-toolbar>
 
@@ -20,9 +20,9 @@
     </ion-grid>
 
     <ion-grid padding='2.5%'> 
-      <h3>
+      <h2>
         <u>Parking Demand</u>
-      </h3>
+      </h2>
       <div style="display: block">
         <canvas baseChart
                 [datasets]="barChartData"
@@ -38,14 +38,22 @@
 
     <ion-grid>
       <ion-row>
-        <h3>
+        <h2>
           <u>Transit Options:</u>
-        </h3>
+        </h2>
       </ion-row>
       
-      <p>Lyft</p>
-      <p>Drive</p>
-      <p>Bike</p>
+      <ion-row>
+        <button ion-button color="primary" (click)='presentActionSheet()'>Lyft</button><p>| $5-10  - Get 10% off with code PARKFERN</p>
+      </ion-row>
+
+      <ion-row>
+        <button ion-button color="divider">Drive</button><p>| Parking $1 hour</p>
+      </ion-row>
+
+      <ion-row>
+        <button ion-button color="divider">Bike</button><p>| 10 min</p>
+      </ion-row>
     </ion-grid>
   </div>
 </ion-content>
