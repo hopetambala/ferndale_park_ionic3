@@ -6,22 +6,27 @@
 
     <ion-grid>
       <ion-row>
-        <ion-col class="ion-float-left">
-          <div>
-            <h3>Capacity: {{capacity}}</h3>
+        <ion-col col-2 style="margin:auto">
+          <div class="circleBase type2">
           </div>
         </ion-col>
-        <ion-col class="ion-float-right">
-          <div>
-            <h3>Spots Left: {{spots_left}}</h3>
+        <ion-col>
+          <h4> Capacity: <b>{{capacity}}</b></h4>
+        </ion-col>
+
+        <ion-col col-2 style="margin:auto">
+          <div class="circleBase type2">
           </div>
+        </ion-col>
+        <ion-col>
+          <h4> Spots Left: <b>{{spots_left}}*</b></h4>
         </ion-col>
       </ion-row>
     </ion-grid>
 
     <ion-grid padding='2.5%'> 
       <h2>
-        <u>Parking Demand</u>
+        <u style="font-weight:bolder">Parking Demand</u>
       </h2>
       <div style="display: block">
         <canvas baseChart
@@ -39,7 +44,7 @@
     <ion-grid>
       <ion-row>
         <h2>
-          <u>Transit Options:</u>
+          <u style="font-weight:bolder">Transit Options:</u>
         </h2>
       </ion-row>
       

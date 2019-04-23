@@ -30,6 +30,8 @@ drawer {
   .bottom{
       border-bottom: 5px solid;
       border-bottom-color: $brand-color;
+      background: linear-gradient(to bottom, #b5bdc8 0%,#828c95 36%,#28343b 100%);
+      color: white;
   }
 
   .box {
@@ -43,7 +45,7 @@ drawer {
       overflow: hidden;
       transform: translate3d(0, 0, 0);
     }
-  
+  /*
   .wave {
     opacity: .05;
     position: absolute;
@@ -103,5 +105,18 @@ drawer {
     from { transform: rotate(0deg); }
     from { transform: rotate(360deg); }
   }
+  */
+
+  .circleBase {
+    border-radius: 50%;
+    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+  }
+
+  .type2 {
+    width: 25px;
+    height: 25px;
+    background: map-get($colors, primary);
+    //border: 3px solid #000;
+}
 
 }
