@@ -6,6 +6,7 @@ import { Map, latLng, tileLayer, Layer, marker, circleMarker,circle } from 'leaf
 
 import { DrawerComponent } from '../drawer/drawer';
 import { ParkingdataProvider } from '../../providers/parkingdata/parkingdata';
+import { GeolocationProvider} from '../../providers/geolocation/geolocation';
 /**
  * Generated class for the LeafletMapComponent component.
  *
@@ -19,12 +20,20 @@ import { ParkingdataProvider } from '../../providers/parkingdata/parkingdata';
 export class LeafletMapComponent {
 
   center: any;
+
+  //Ferndales Center
   map: Map<'map', {
     center: [51.505, -0.09],
     zoom: 13}>;
 
-  constructor(public modalCtrl:ModalController, private parkSrvc:ParkingdataProvider) {
+  //Users Location
+  user_location: Array<Number>
+
+  constructor(public modalCtrl:ModalController, private parkSrvc:ParkingdataProvider, public geoLocate:GeolocationProvider) {
     console.log('Hello LeafletMapComponent Component');
+    this.geoLocate.getUserPosition().then((result)=>{
+      this.user_location=result;
+    })
   }
 
   ngOnInit() {
@@ -32,11 +41,11 @@ export class LeafletMapComponent {
     this.leafletMap();
   }
 
-    /*
-    * Creates Map
-    *
-    * 
-    */
+  /*
+  * Creates Map
+  *
+  * 
+  */
   leafletMap(){
     setTimeout(() => {
       var zoom = 16
@@ -59,7 +68,6 @@ export class LeafletMapComponent {
   */
   createMarker(){
     //console.log(this.parkSrvc.parkingLots);
-
     for (let i=0;i < this.parkSrvc.parkingLots.length;i++){
       let lot = this.parkSrvc.parkingLots[i]
       circle([lot.Latitutde,lot.Longitude],{
@@ -95,7 +103,7 @@ export class LeafletMapComponent {
   */
   async presentModal(lot) {
     console.log(lot)
-    let modal = await this.modalCtrl.create(DrawerComponent,{ value: lot });
+    let modal = await this.modalCtrl.create(DrawerComponent,{ value: lot, position:this.user_location });
       //cssClass: 'my-custom-modal-css'
     //return await modal.present();
     modal.present();

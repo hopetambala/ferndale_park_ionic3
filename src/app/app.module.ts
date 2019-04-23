@@ -9,11 +9,14 @@ import { MyApp } from './app.component';
 // Native imports
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Geolocation } from '@ionic-native/geolocation';
+
 
 // Providers
 //import { ParseProvider } from '../providers/parse/parse';
 //import { AuthProvider } from '../providers/auth/auth';
 import { ParkingdataProvider } from '../providers/parkingdata/parkingdata';
+import { GeolocationProvider} from '../providers/geolocation/geolocation'
 
 
 // Pages
@@ -63,7 +66,10 @@ import { DrawerComponent } from '../components/drawer/drawer';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     //ParseProvider,
     //AuthProvider,
-    ParkingdataProvider
+    Geolocation,
+    ParkingdataProvider,
+    GeolocationProvider
+    
   ]
 })
 export class AppModule { }

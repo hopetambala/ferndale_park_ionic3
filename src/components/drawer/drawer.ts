@@ -23,7 +23,7 @@ export class DrawerComponent {
   public barChartLegend:boolean = true;
   
   public barChartData:any[] = [
-    {data: [10, 30, 40, 50, 90, 60, 100,90,30], label: 'Series A'},
+    {data: [10, 30, 40, 50, 90, 60, 100,90,30]},
     //{data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}
   ];
 
@@ -32,12 +32,18 @@ export class DrawerComponent {
   capacity: number;
   spots_left: number;
 
+  user_position:any;
+
   lyft_client_id = '-1uo5XDR5GoE'
   //lyft_url = 'https://lyft.com/ride?id=lyft&pickup[latitude]=37.764728&pickup[longitude]=-122.422999&partner=YOUR_CLIENT_ID&destination[latitude]=37.7763592&destination[longitude]=-122.4242038'
 
   constructor(public viewCtrl: ViewController, public modalCtrl:ModalController,public navParams: NavParams, public actionSheetCtrl:ActionSheetController) {
     console.log('Hello DrawerComponent Component');
-    this.lot_object = this.navParams.data.value
+
+    //NavParams
+    this.lot_object = this.navParams.data.value;
+    this.user_position = this.navParams.data.position;
+
     this.capacity = 52;
     this.spots_left = 20;
   }
@@ -55,14 +61,14 @@ export class DrawerComponent {
   presentActionSheet() {
   //https://developer.lyft.com/docs/universal-links
   //https://www.lyft.com/developers/apps
-    let lyft_url = 'https://lyft.com/ride?id=lyft&pickup[latitude]=' + '37.764728' + '&pickup[longitude]=' + '-122.422999'+'&partner='+this.lyft_client_id+'&destination[latitude]='+'37.7763592'+'&destination[longitude]='+'-122.4242038'
+    let lyft_url = 'https://lyft.com/ride?id=lyft&pickup[latitude]=' + String(this.user_position[0]) + '&pickup[longitude]=' + String(this.user_position[1])+'&partner='+this.lyft_client_id+'&destination[latitude]='+String(this.lot_object['Latitutde'])+'&destination[longitude]='+String(this.lot_object['Longitude'])
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Open Lyft App',
       buttons: [
         {
           text: 'Yes',
           handler: () => {
-            console.log('Archive clicked');
+            console.log('Yes clicked');
             window.open(lyft_url,'_system', 'location=yes');
           }
         },
